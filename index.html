@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      #page {
+        display: grid;
+        grid-template-areas:
+          "nav head"
+          "nav  main"
+          "foot  foot";
+        grid-template-rows: 5rem 1fr 5rem;
+        grid-template-columns: 20% 80%;
+      }
+
+      #page > header {
+        grid-area: head;
+        background-color: #8ca0ff;
+      }
+
+      #page > nav {
+        grid-area: nav;
+        background-color: #ffa08c;
+      }
+
+      #page > main {
+        grid-area: main;
+        background-color: #ffff64;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        padding: 1rem;
+      }
+
+      #dashboard {
+        background-color: #c1c13b;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .card {
+        width: 15rem;
+        height: 20rem;
+        border: 2px solid black;
+      }
+
+      main > aside {
+        background-color: #4b5ebf;
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+      }
+
+      main > aside #up {
+        background-color: #3fac3f;
+        height: 100%;
+      }
+
+      main > aside #down {
+        background-color: #2eb777;
+        height: 100%;
+      }
+
+      #page > footer {
+        grid-area: foot;
+        background-color: #8cffa0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <header>
+        <div>
+          <span>
+            search
+            <input type="text" />
+          </span>
+          <span> N pic username </span>
+        </div>
+        <div>
+          <span>Hi there</span>
+          <button>New</button>
+          <button>Upload</button>
+          <button>Share</button>
+        </div>
+      </header>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Profile</li>
+          <li>Messages</li>
+          <li>History</li>
+          <li>Tasks</li>
+          <li>Communities</li>
+          <li>Settings</li>
+          <li>Support</li>
+          <li>Privacy</li>
+        </ul>
+      </nav>
+      <main>
+        <div id="dashboard">
+          <div class="card">A</div>
+          <div class="card">B</div>
+          <div class="card">C</div>
+          <div class="card">D</div>
+        </div>
+        <aside>
+          <div id="up">
+            <div class="card">A</div>
+          </div>
+          <div id="down">
+            <div class="card">A</div>
+          </div>
+        </aside>
+      </main>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
