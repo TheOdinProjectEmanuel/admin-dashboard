@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
     <style>
+      :root {
+        --primary: #1e89e0;
+        --primary-bg: #c4d9e4;
+        --secondary-bg: #e0e2ec;
+      }
+
+      h4 {
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+
       body {
         margin: 0;
       }
+
       #page {
         display: grid;
         grid-template-areas:
@@ -20,61 +32,101 @@
 
       #page > header {
         grid-area: head;
-        background-color: #8ca0ff;
+        background-color: var(--secondary-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.5rem;
+      }
+
+      header button {
+        color: #ffffff;
+        width: 5rem;
+        height: 2rem;
+        background-color: var(--primary);
+        border: 2px solid var(--primary);
+        border-radius: 2rem;
+        cursor: pointer;
       }
 
       #page > nav {
         grid-area: nav;
-        background-color: #ffa08c;
+        background-color: var(--primary);
+        color: #ffffff;
       }
 
       #page > main {
         grid-area: main;
-        background-color: #ffff64;
+        background-color: var(--primary-bg);
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 4fr 1fr;
         padding: 1rem;
       }
 
       #dashboard {
-        background-color: #c1c13b;
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
       }
 
       .card {
-        width: 15rem;
-        height: 20rem;
-        border: 2px solid black;
+        background-color: var(--secondary-bg);
+      }
+
+      #dashboard .card {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        height: 15rem;
+        padding: 1rem;
+        border-left: 6px solid orange;
+        border-radius: 4px;
+      }
+
+      #dashboard .card .icon-container {
+        margin: auto 0 0 auto;
       }
 
       main > aside {
-        background-color: #4b5ebf;
         display: flex;
         flex-direction: column;
-        padding: 0.5rem;
+        gap: 1rem;
       }
 
-      main > aside #up {
-        background-color: #3fac3f;
-        height: 100%;
-      }
-
+      main > aside #up,
       main > aside #down {
-        background-color: #2eb777;
         height: 100%;
+      }
+
+      #up .card,
+      #down .card {
+        width: 10rem;
+        height: 100%;
+        border: 1px solid red;
       }
 
       #page > footer {
         grid-area: foot;
         background-color: #8cffa0;
       }
+
+      /* STYLE CLASSES */
+
+      .flex-space-between {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+      }
     </style>
   </head>
   <body>
     <div id="page">
       <header>
-        <div>
+        <div class="flex-space-between">
           <span>
             search
             <input type="text" />
@@ -82,10 +134,14 @@
           <span> N pic username </span>
         </div>
         <div>
-          <span>Hi there</span>
-          <button>New</button>
-          <button>Upload</button>
-          <button>Share</button>
+          <div class="flex-space-between">
+            <span>Hi there</span>
+            <div>
+              <button>New</button>
+              <button>Upload</button>
+              <button>Share</button>
+            </div>
+          </div>
         </div>
       </header>
       <nav>
@@ -102,17 +158,66 @@
         </ul>
       </nav>
       <main>
-        <div id="dashboard">
-          <div class="card">A</div>
-          <div class="card">B</div>
-          <div class="card">C</div>
-          <div class="card">D</div>
+        <div>
+          <h4>My projects</h4>
+          <div id="dashboard">
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+            <div class="card">
+              <span>Super cool project</span>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellat qui doloremque enim non praesentium a!
+              </p>
+              <div class="icon-container">I1 I2 I3</div>
+            </div>
+          </div>
         </div>
         <aside>
-          <div id="up">
+          <div id="up" class="flex-column">
+            <h4>Announcements</h4>
             <div class="card">A</div>
           </div>
-          <div id="down">
+          <div id="down" class="flex-column">
+            <h4>Trending</h4>
             <div class="card">A</div>
           </div>
         </aside>
