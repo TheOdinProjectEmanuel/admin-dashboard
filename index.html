@@ -39,6 +39,13 @@
         padding: 0.5rem;
       }
 
+      header input {
+        width: 35rem;
+        margin-left: 1rem;
+        padding-left: 8px;
+        border-radius: 1rem;
+      }
+
       header button {
         color: #ffffff;
         width: 5rem;
@@ -49,10 +56,19 @@
         cursor: pointer;
       }
 
-      #page > nav {
+      #navbar {
         grid-area: nav;
         background-color: var(--primary);
         color: #ffffff;
+      }
+
+      #navbar li {
+        margin-top: 1rem;
+        list-style-type: none;
+      }
+
+      li > svg {
+        margin-right: 0.5rem;
       }
 
       #page > main {
@@ -69,22 +85,58 @@
         gap: 1rem;
       }
 
-      .card {
-        background-color: var(--secondary-bg);
-      }
-
       #dashboard .card {
         display: flex;
         flex-direction: column;
-        width: 20rem;
-        height: 15rem;
-        padding: 1rem;
+        justify-content: space-between;
+        width: 22rem;
+        height: 18rem;
+        padding: 1.5rem;
+        background: var(--secondary-bg);
         border-left: 6px solid orange;
-        border-radius: 4px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
       }
 
-      #dashboard .card .icon-container {
-        margin: auto 0 0 auto;
+      #dashboard .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+
+      #dashboard .card span {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--primary-text);
+        margin-bottom: 0.5rem;
+      }
+
+      #dashboard .card p {
+        font-size: 1rem;
+        color: var(--secondary-text);
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      #dashboard .card .actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 1rem;
+      }
+
+      #dashboard .card .actions svg {
+        width: 24px;
+        height: 24px;
+        color: var(--icon-color, #666);
+        margin-left: 1rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      #dashboard .card .actions svg:hover {
+        color: orange;
       }
 
       main > aside {
@@ -122,16 +174,42 @@
         flex-direction: column;
       }
     </style>
+    <script defer src="index.js"></script>
   </head>
   <body>
     <div id="page">
       <header>
         <div class="flex-space-between">
           <span>
-            search
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+              />
+            </svg>
             <input type="text" />
           </span>
-          <span> N pic username </span>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-bell"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"
+              />
+            </svg>
+            pic username
+          </span>
         </div>
         <div>
           <div class="flex-space-between">
@@ -144,72 +222,11 @@
           </div>
         </div>
       </header>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>Profile</li>
-          <li>Messages</li>
-          <li>History</li>
-          <li>Tasks</li>
-          <li>Communities</li>
-          <li>Settings</li>
-          <li>Support</li>
-          <li>Privacy</li>
-        </ul>
-      </nav>
+      <nav id="navbar"></nav>
       <main>
         <div>
           <h4>My projects</h4>
-          <div id="dashboard">
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-            <div class="card">
-              <span>Super cool project</span>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Repellat qui doloremque enim non praesentium a!
-              </p>
-              <div class="icon-container">I1 I2 I3</div>
-            </div>
-          </div>
+          <div id="dashboard"></div>
         </div>
         <aside>
           <div id="up" class="flex-column">
